@@ -1,1 +1,301 @@
+/* ===== CONFIGURAÇÕES GERAIS ===== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+
+    background: #f2f5f9;
+    color: #333;
+
+}
+
+
+
+/* ===== CABEÇALHO ===== */
+
+header {
+
+    background: linear-gradient(135deg, #4263eb, #6c8cff);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+}
+
+
+header h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+
+}
+
+
+header p {
+
+    font-size: 18px;
+
+    opacity: 0.9;
+
+}
+
+
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+
+main {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 40px 20px;
+
+}
+
+
+
+section {
+
+    margin-bottom: 50px;
+
+}
+
+
+h2 {
+
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+
+    color: #2d3a8c;
+
+}
+
+
+
+
+/* ===== INTRODUÇÃO E CONCLUSÃO ===== */
+
+
+.introducao,
+.conclusao {
+
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+    line-height: 1.6;
+
+}
+
+
+
+
+/* ===== ÁREA DOS FLASHCARDS ===== */
+
+
+.container-cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+
+
+/* ===== CARD ===== */
+
+
+.card {
+
+    height: 230px;
+
+    perspective: 1000px;
+
+    cursor: pointer;
+
+}
+
+
+
+.card-inner {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    transition: transform 0.6s;
+
+    transform-style: preserve-3d;
+
+}
+
+
+
+.card:hover .card-inner {
+
+    transform: rotateY(180deg);
+
+}
+
+
+
+
+.frente,
+.verso {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    backface-visibility: hidden;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+
+}
+
+
+
+/* Frente */
+
+.frente {
+
+    background: white;
+
+    border-top: 8px solid #4263eb;
+
+}
+
+
+.frente h3 {
+
+    font-size: 25px;
+
+    color: #4263eb;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.frente p {
+
+    color: #777;
+
+}
+
+
+
+/* Verso */
+
+
+.verso {
+
+    background: #4263eb;
+
+    color: white;
+
+    transform: rotateY(180deg);
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+}
+
+
+
+/* ===== RODAPÉ ===== */
+
+
+footer {
+
+    background: #222;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+}
+
+
+
+
+/* ===== RESPONSIVIDADE ===== */
+
+
+@media(max-width:900px){
+
+
+    .container-cards {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+    header h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .container-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+}
