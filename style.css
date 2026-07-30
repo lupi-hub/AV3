@@ -299,3 +299,138 @@ footer {
 
 
 }
+
+/* =========================
+   NAVBAR
+========================= */
+
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    z-index: 1000;
+
+}
+
+
+
+.logo {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #4263eb;
+
+}
+
+
+
+.menu {
+
+    display: flex;
+
+    list-style: none;
+
+    gap: 25px;
+
+}
+
+
+
+.menu a {
+
+    text-decoration: none;
+
+    color: #333;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+
+.menu a:hover {
+
+    color: #4263eb;
+
+}
+
+
+
+/* deixa a página parar no lugar certo ao clicar */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+
+/* evita o conteúdo ficar escondido atrás da navbar */
+
+body {
+
+    padding-top: 70px;
+
+}
+
+
+
+/* celular */
+
+@media(max-width:700px){
+
+
+    .navbar {
+
+        padding: 0 15px;
+
+    }
+
+
+    .logo {
+
+        font-size: 16px;
+
+    }
+
+
+    .menu {
+
+        gap: 10px;
+
+    }
+
+
+    .menu a {
+
+        font-size: 12px;
+
+    }
+
+}
