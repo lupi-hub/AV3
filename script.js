@@ -1,3 +1,69 @@
+const intro = document.querySelector("#intro-screen");
+const texto = document.querySelector("#intro-text");
+const porcentagem = document.querySelector("#porcentagem");
+
+
+let iniciado = false;
+
+
+texto.addEventListener("click",()=>{
+
+
+    if(iniciado) return;
+
+
+    iniciado = true;
+
+
+    texto.innerHTML = "Analisando visão...";
+
+
+    let valor = 0;
+
+
+    let carregamento = setInterval(()=>{
+
+
+        valor++;
+
+
+        porcentagem.innerHTML = valor + "%";
+
+
+
+        if(valor >= 100){
+
+
+            clearInterval(carregamento);
+
+
+            texto.innerHTML =
+            "Experiência iniciada";
+
+
+
+            intro.style.opacity = "0";
+
+
+
+            setTimeout(()=>{
+
+                intro.style.display="none";
+
+            },2000);
+
+
+
+        }
+
+
+
+    },25);
+
+
+
+});
+
 // ===============================
 // BOTÃO EXPLORAR
 // ===============================

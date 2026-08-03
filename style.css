@@ -684,3 +684,72 @@ footer {
 
 
 }
+
+/* =========================
+   TELA DE ENTRADA
+========================= */
+
+
+#intro-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #000;
+
+    color: white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:5000;
+
+    transition:2s;
+
+}
+
+
+
+.intro-content {
+
+    text-align:center;
+
+}
+
+
+
+.intro-content h1 {
+
+    font-size:60px;
+
+    color:#00c6ff;
+
+    margin-bottom:20px;
+
+}
+
+
+
+#intro-text {
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+
+
+#porcentagem {
+
+    font-size:50px;
+
+    margin-top:30px;
+
+    font-weight:bold;
+
+}
