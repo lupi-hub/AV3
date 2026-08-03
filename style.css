@@ -753,3 +753,70 @@ footer {
     font-weight:bold;
 
 }
+
+/* =========================
+   TELA DE ENTRADA
+========================= */
+
+
+#intro-screen {
+
+    position: fixed !important;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: #000;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+
+.intro-content {
+
+    text-align:center;
+
+}
+
+
+.intro-content h1 {
+
+    font-size:70px;
+
+    color:#00c6ff;
+
+}
+
+
+
+#intro-text {
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    margin-top:20px;
+
+}
+
+
+
+#porcentagem {
+
+    font-size:50px;
+
+    margin-top:20px;
+
+}

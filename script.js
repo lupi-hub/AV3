@@ -1,3 +1,6 @@
+window.addEventListener("load", ()=>{
+
+
 const intro = document.querySelector("#intro-screen");
 const texto = document.querySelector("#intro-text");
 const porcentagem = document.querySelector("#porcentagem");
@@ -11,47 +14,39 @@ texto.addEventListener("click",()=>{
 
     if(iniciado) return;
 
-
-    iniciado = true;
-
-
-    texto.innerHTML = "Analisando visão...";
+    iniciado=true;
 
 
-    let valor = 0;
+    texto.innerHTML="Analisando visão...";
 
 
-    let carregamento = setInterval(()=>{
+    let valor=0;
+
+
+    let carregamento=setInterval(()=>{
 
 
         valor++;
 
 
-        porcentagem.innerHTML = valor + "%";
+        porcentagem.innerHTML=valor+"%";
 
 
 
-        if(valor >= 100){
+        if(valor>=100){
 
 
             clearInterval(carregamento);
 
 
-            texto.innerHTML =
-            "Experiência iniciada";
-
-
-
-            intro.style.opacity = "0";
-
+            intro.style.opacity="0";
 
 
             setTimeout(()=>{
 
-                intro.style.display="none";
+                intro.remove();
 
             },2000);
-
 
 
         }
@@ -60,6 +55,9 @@ texto.addEventListener("click",()=>{
 
     },25);
 
+
+
+});
 
 
 });
