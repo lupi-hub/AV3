@@ -217,7 +217,7 @@ window.addEventListener("scroll",()=>{
 
 
 
-});?
+});
 
 const intro = document.getElementById("intro-screen");
 
