@@ -217,4 +217,69 @@ window.addEventListener("scroll",()=>{
 
 
 
-});
+});?
+
+const intro = document.getElementById("intro-screen");
+
+const textoIntro = document.getElementById("intro-text");
+
+const porcentagem = document.getElementById("porcentagem");
+
+
+let iniciado = false;
+
+
+textoIntro.onclick = function(){
+
+
+    if(iniciado) return;
+
+
+    iniciado = true;
+
+
+    let valor = 0;
+
+
+    textoIntro.innerHTML = "Carregando...";
+
+
+
+    let intervalo = setInterval(()=>{
+
+
+        valor++;
+
+
+        porcentagem.innerHTML = valor + "%";
+
+
+        if(valor >= 100){
+
+
+            clearInterval(intervalo);
+
+
+            intro.style.transition = "2s";
+
+            intro.style.opacity = "0";
+
+
+
+            setTimeout(()=>{
+
+                intro.style.display="none";
+
+            },2000);
+
+
+
+        }
+
+
+
+    },30);
+
+
+
+};
