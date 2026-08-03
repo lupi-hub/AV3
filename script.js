@@ -1,63 +1,156 @@
 // ===============================
-// FLASHCARDS
+// BOTÃO EXPLORAR
 // ===============================
 
-const cards = document.querySelectorAll(".card");
+const botao = document.querySelector(".hero button");
 
-cards.forEach(card => {
+botao.addEventListener("click", () => {
 
-    card.addEventListener("click", () => {
-
-        // Fecha todos os outros cards
-        cards.forEach(outro => {
-
-            if (outro !== card) {
-                outro.querySelector(".card-inner").classList.remove("virado");
-            }
-
-        });
-
-        // Abre ou fecha o card clicado
-        card.querySelector(".card-inner").classList.toggle("virado");
-
+    document.querySelector("#cards").scrollIntoView({
+        behavior: "smooth"
     });
 
 });
 
 
 
+
 // ===============================
-// ANIMAÇÃO AO CARREGAR
+// FLASHCARDS
 // ===============================
 
-window.addEventListener("load", () => {
+const cards = document.querySelectorAll(".card");
 
-    document.querySelectorAll("section").forEach((secao, indice) => {
 
-        secao.animate(
+cards.forEach(card => {
 
-            [
-                {
-                    opacity: 0,
-                    transform: "translateY(40px)"
-                },
 
-                {
-                    opacity: 1,
-                    transform: "translateY(0)"
-                }
+    card.addEventListener("click", () => {
 
-            ],
 
-            {
-                duration: 700,
-                delay: indice * 180,
-                fill: "forwards",
-                easing: "ease"
+        // fecha os outros cards
+
+        cards.forEach(outro => {
+
+            if(outro !== card){
+
+                outro
+                .querySelector(".card-inner")
+                .classList.remove("virado");
+
             }
 
-        );
+        });
+
+
+
+        // vira o card clicado
+
+        card
+        .querySelector(".card-inner")
+        .classList.toggle("virado");
+
 
     });
+
+
+});
+
+
+
+
+
+// ===============================
+// ANIMAÇÃO AO APARECER NA TELA
+// ===============================
+
+
+const elementos = document.querySelectorAll("section");
+
+
+const observador = new IntersectionObserver((entradas)=>{
+
+
+    entradas.forEach(entrada=>{
+
+
+        if(entrada.isIntersecting){
+
+
+            entrada.target.style.opacity = "1";
+
+            entrada.target.style.transform =
+            "translateY(0)";
+
+
+        }
+
+
+    });
+
+
+
+});
+
+
+
+elementos.forEach(secao=>{
+
+
+    secao.style.opacity = "0";
+
+    secao.style.transform =
+    "translateY(40px)";
+
+
+    secao.style.transition =
+    "0.8s ease";
+
+
+    observador.observe(secao);
+
+
+});
+
+
+
+
+
+
+
+// ===============================
+// BARRA DE PROGRESSO
+// ===============================
+
+
+
+const progresso = document.createElement("div");
+
+
+progresso.id = "progresso";
+
+
+document.body.appendChild(progresso);
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+    let altura =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+
+
+    let porcentagem =
+    (window.scrollY / altura) * 100;
+
+
+
+    progresso.style.width =
+    porcentagem + "%";
+
+
 
 });
