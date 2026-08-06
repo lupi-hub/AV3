@@ -10,6 +10,12 @@ console.log(intro);
 console.log(texto);
 console.log(porcentagem);
 
+texto.addEventListener("click", ()=>{
+
+    alert("cliquei");
+
+});
+
 
 let iniciado = false;
 
