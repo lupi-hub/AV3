@@ -1,3 +1,4 @@
+alert("JS carregou");
 window.addEventListener("load", ()=>{
 
 
