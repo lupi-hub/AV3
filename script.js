@@ -6,6 +6,10 @@ const intro = document.querySelector("#intro-screen");
 const texto = document.querySelector("#intro-text");
 const porcentagem = document.querySelector("#porcentagem");
 
+console.log(intro);
+console.log(texto);
+console.log(porcentagem);
+
 
 let iniciado = false;
 
@@ -45,7 +49,7 @@ texto.addEventListener("click",()=>{
 
             setTimeout(()=>{
 
-                intro.remove();
+                intro.style.display = "none";
 
             },2000);
 
