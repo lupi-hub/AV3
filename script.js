@@ -1,28 +1,25 @@
-window.addEventListener("load", ()=>{
-
-
 // ===============================
 // INTRO DO SITE
 // ===============================
 
 const intro = document.querySelector("#intro-screen");
 const texto = document.querySelector("#intro-text");
-const porcentagem = document.querySelector("#porcentagem");
+const porcentagemIntro = document.querySelector("#porcentagem");
 
 let progressoIntro = 0;
 
-
-if (intro && texto && porcentagem) {
+if (intro && texto && porcentagemIntro) {
 
     intro.addEventListener("click", function () {
 
         // Cada clique aumenta 10%
         progressoIntro += 10;
 
-        porcentagem.innerHTML = progressoIntro + "%";
+        porcentagemIntro.innerHTML = progressoIntro + "%";
 
 
         // Mensagens durante a entrada
+
         if (progressoIntro === 10) {
 
             texto.innerHTML = "Iniciando análise...";
@@ -64,6 +61,8 @@ if (intro && texto && porcentagem) {
             texto.innerHTML = "Visão recuperada!";
 
 
+            // Começa a desaparecer
+
             setTimeout(function () {
 
                 intro.style.opacity = "0";
@@ -84,20 +83,31 @@ if (intro && texto && porcentagem) {
 
 }
 
+
+
 // ===============================
 // BOTÃO EXPLORAR
 // ===============================
 
 const botao = document.querySelector(".hero button");
 
-botao.addEventListener("click", () => {
+if (botao) {
 
-    document.querySelector("#cards").scrollIntoView({
-        behavior: "smooth"
+    botao.addEventListener("click", () => {
+
+        const cards = document.querySelector("#cards");
+
+        if (cards) {
+
+            cards.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
     });
 
-});
-
+}
 
 
 
@@ -110,39 +120,41 @@ const cards = document.querySelectorAll(".card");
 
 cards.forEach(card => {
 
-
     card.addEventListener("click", () => {
 
 
-        // fecha os outros cards
+        // Fecha os outros cards
 
         cards.forEach(outro => {
 
-            if(outro !== card){
+            if (outro !== card) {
 
-                outro
-                .querySelector(".card-inner")
-                .classList.remove("virado");
+                const outroInner = outro.querySelector(".card-inner");
+
+                if (outroInner) {
+
+                    outroInner.classList.remove("virado");
+
+                }
 
             }
 
         });
 
 
+        // Vira o card clicado
 
-        // vira o card clicado
+        const cardInner = card.querySelector(".card-inner");
 
-        card
-        .querySelector(".card-inner")
-        .classList.toggle("virado");
+        if (cardInner) {
 
+            cardInner.classList.toggle("virado");
+
+        }
 
     });
 
-
 });
-
-
 
 
 
@@ -150,116 +162,70 @@ cards.forEach(card => {
 // ANIMAÇÃO AO APARECER NA TELA
 // ===============================
 
-
 const elementos = document.querySelectorAll("section");
 
 
-const observador = new IntersectionObserver((entradas)=>{
+const observador = new IntersectionObserver((entradas) => {
 
+    entradas.forEach(entrada => {
 
-    entradas.forEach(entrada=>{
-
-
-        if(entrada.isIntersecting){
-
+        if (entrada.isIntersecting) {
 
             entrada.target.style.opacity = "1";
 
-            entrada.target.style.transform =
-            "translateY(0)";
-
+            entrada.target.style.transform = "translateY(0)";
 
         }
 
-
     });
-
-
 
 });
 
 
-
-elementos.forEach(secao=>{
-
+elementos.forEach(secao => {
 
     secao.style.opacity = "0";
 
-    secao.style.transform =
-    "translateY(40px)";
+    secao.style.transform = "translateY(40px)";
 
-
-    secao.style.transition =
-    "0.8s ease";
-
+    secao.style.transition = "0.8s ease";
 
     observador.observe(secao);
 
-
 });
-
-
-
-
 
 
 
 // ===============================
 // BARRA DE PROGRESSO
 // ===============================
-
-
 
 const progresso = document.createElement("div");
 
-
-progresso.id = "progresso";
-
-
-document.body.appendChild(progresso);
-
-
-
-window.addEventListener("scroll",()=>{
-
-
-    let altura =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-
-
-
-    let porcentagem =
-    (window.scrollY / altura) * 100;
-
-
-
-    progresso.style.width =
-    porcentagem + "%";
-
-
-
-});
-
-// ===============================
-// BARRA DE PROGRESSO
-// ===============================
-
 progresso.id = "progresso";
 
 document.body.appendChild(progresso);
 
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-    let altura =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
+    const altura =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
 
-    let porcentagem =
-    (window.scrollY / altura) * 100;
+
+    if (altura <= 0) {
+
+        return;
+
+    }
+
+
+    const porcentagemScroll =
+        (window.scrollY / altura) * 100;
+
 
     progresso.style.width =
-    porcentagem + "%";
+        porcentagemScroll + "%";
 
 });
