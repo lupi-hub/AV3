@@ -6,9 +6,7 @@ const intro = document.querySelector("#intro-screen");
 const texto = document.querySelector("#intro-text");
 const porcentagem = document.querySelector("#porcentagem");
 
-console.log(intro);
-console.log(texto);
-console.log(porcentagem);
+
 
 texto.addEventListener("click", ()=>{
 
@@ -20,7 +18,7 @@ texto.addEventListener("click", ()=>{
 let iniciado = false;
 
 
-texto.addEventListener("click",()=>{
+intro.addEventListener("click", function() {
 
 
     if(iniciado) return;
