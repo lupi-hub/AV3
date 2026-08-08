@@ -241,67 +241,27 @@ window.addEventListener("scroll",()=>{
 
 });
 
-const intro = document.getElementById("intro-screen");
+// ===============================
+// BARRA DE PROGRESSO
+// ===============================
 
-const textoIntro = document.getElementById("intro-text");
+const progresso = document.createElement("div");
 
-const porcentagem = document.getElementById("porcentagem");
+progresso.id = "progresso";
 
-
-let iniciado = false;
-
-
-textoIntro.onclick = function(){
+document.body.appendChild(progresso);
 
 
-    if(iniciado) return;
+window.addEventListener("scroll",()=>{
 
+    let altura =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
 
-    iniciado = true;
+    let porcentagem =
+    (window.scrollY / altura) * 100;
 
+    progresso.style.width =
+    porcentagem + "%";
 
-    let valor = 0;
-
-
-    textoIntro.innerHTML = "Carregando...";
-
-
-
-    let intervalo = setInterval(()=>{
-
-
-        valor++;
-
-
-        porcentagem.innerHTML = valor + "%";
-
-
-        if(valor >= 100){
-
-
-            clearInterval(intervalo);
-
-
-            intro.style.transition = "2s";
-
-            intro.style.opacity = "0";
-
-
-
-            setTimeout(()=>{
-
-                intro.style.display="none";
-
-            },2000);
-
-
-
-        }
-
-
-
-    },30);
-
-
-
-};
+});
