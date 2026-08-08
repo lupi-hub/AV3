@@ -1,75 +1,88 @@
-alert("JS carregou");
 window.addEventListener("load", ()=>{
 
+
+// ===============================
+// INTRO DO SITE
+// ===============================
 
 const intro = document.querySelector("#intro-screen");
 const texto = document.querySelector("#intro-text");
 const porcentagem = document.querySelector("#porcentagem");
 
+let progressoIntro = 0;
 
 
-texto.addEventListener("click", ()=>{
+if (intro && texto && porcentagem) {
 
-    alert("cliquei");
+    intro.addEventListener("click", function () {
 
-});
+        // Cada clique aumenta 10%
+        progressoIntro += 10;
 
-
-let iniciado = false;
-
-
-intro.addEventListener("click", function() {
+        porcentagem.innerHTML = progressoIntro + "%";
 
 
-    if(iniciado) return;
+        // Mensagens durante a entrada
+        if (progressoIntro === 10) {
 
-    iniciado=true;
+            texto.innerHTML = "Iniciando análise...";
+
+        } else if (progressoIntro === 20) {
+
+            texto.innerHTML = "Analisando o sistema visual...";
+
+        } else if (progressoIntro === 30) {
+
+            texto.innerHTML = "Examinando a retina...";
+
+        } else if (progressoIntro === 40) {
+
+            texto.innerHTML = "Analisando o nervo óptico...";
+
+        } else if (progressoIntro === 50) {
+
+            texto.innerHTML = "Verificando o campo visual...";
+
+        } else if (progressoIntro === 60) {
+
+            texto.innerHTML = "Processando informações...";
+
+        } else if (progressoIntro === 70) {
+
+            texto.innerHTML = "Preparando o conteúdo...";
+
+        } else if (progressoIntro === 80) {
+
+            texto.innerHTML = "Quase pronto...";
+
+        } else if (progressoIntro === 90) {
+
+            texto.innerHTML = "Recuperando visão...";
+
+        } else if (progressoIntro === 100) {
+
+            texto.innerHTML = "Visão recuperada!";
 
 
-    texto.innerHTML="Analisando visão...";
+            setTimeout(function () {
+
+                intro.style.opacity = "0";
 
 
-    let valor=0;
+                setTimeout(function () {
+
+                    intro.style.display = "none";
+
+                }, 2000);
 
 
-    let carregamento=setInterval(()=>{
-
-
-        valor++;
-
-
-        porcentagem.innerHTML=valor+"%";
-
-
-
-        if(valor>=100){
-
-
-            clearInterval(carregamento);
-
-
-            intro.style.opacity="0";
-
-
-            setTimeout(()=>{
-
-                intro.style.display = "none";
-
-            },2000);
-
+            }, 500);
 
         }
 
+    });
 
-
-    },25);
-
-
-
-});
-
-
-});
+}
 
 // ===============================
 // BOTÃO EXPLORAR
