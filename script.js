@@ -245,8 +245,6 @@ window.addEventListener("scroll",()=>{
 // BARRA DE PROGRESSO
 // ===============================
 
-const progresso = document.createElement("div");
-
 progresso.id = "progresso";
 
 document.body.appendChild(progresso);
