@@ -5,20 +5,19 @@
 const intro = document.querySelector("#intro-screen");
 const texto = document.querySelector("#intro-text");
 const porcentagemIntro = document.querySelector("#porcentagem");
+const botaoIniciar = document.querySelector("#botao-iniciar");
 
 let progressoIntro = 0;
 
-if (intro && texto && porcentagemIntro) {
 
-    intro.addEventListener("click", function () {
+if (intro && texto && porcentagemIntro && botaoIniciar) {
 
-        // Cada clique aumenta 10%
+    botaoIniciar.addEventListener("click", function () {
+
         progressoIntro += 10;
 
         porcentagemIntro.innerHTML = progressoIntro + "%";
 
-
-        // Mensagens durante a entrada
 
         if (progressoIntro === 10) {
 
@@ -60,8 +59,8 @@ if (intro && texto && porcentagemIntro) {
 
             texto.innerHTML = "Visão recuperada!";
 
+            botaoIniciar.innerHTML = "Entrar no site";
 
-            // Começa a desaparecer
 
             setTimeout(function () {
 
@@ -74,17 +73,13 @@ if (intro && texto && porcentagemIntro) {
 
                 }, 2000);
 
-
-            }, 500);
+            }, 700);
 
         }
 
     });
 
 }
-
-
-
 // ===============================
 // BOTÃO EXPLORAR
 // ===============================

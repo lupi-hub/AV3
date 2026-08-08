@@ -764,3 +764,47 @@ footer {
     margin-top:25px;
 
 }
+
+/* =========================
+   BOTÃO DA INTRO
+========================= */
+
+#botao-iniciar {
+
+    margin-top: 30px;
+
+    padding: 15px 40px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #00c6ff;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+#botao-iniciar:hover {
+
+    transform: scale(1.08);
+
+    background: #009ed1;
+
+}
+
+
+#botao-iniciar:active {
+
+    transform: scale(0.95);
+
+}
