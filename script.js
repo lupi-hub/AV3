@@ -6,6 +6,7 @@ const intro = document.querySelector("#intro-screen");
 const texto = document.querySelector("#intro-text");
 const porcentagemIntro = document.querySelector("#porcentagem");
 const botaoIniciar = document.querySelector("#botao-iniciar");
+const introOverlay = document.querySelector(".intro-overlay");
 
 let progressoIntro = 0;
 
@@ -18,6 +19,7 @@ if (intro && texto && porcentagemIntro && botaoIniciar) {
 
         porcentagemIntro.innerHTML = progressoIntro + "%";
 
+            introOverlay.style.opacity = 1 - (progressoIntro / 100);
 
         if (progressoIntro === 10) {
 
