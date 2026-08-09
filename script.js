@@ -18,9 +18,6 @@ if (intro && texto && porcentagemIntro && botaoIniciar) {
 
         porcentagemIntro.innerHTML = progressoIntro + "%";
 
-        intro.style.clipPath =
-    `inset(0 ${100 - progressoIntro}% 0 0)`;
-
 
         if (progressoIntro === 10) {
 
