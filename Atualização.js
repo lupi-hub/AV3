@@ -84,6 +84,9 @@ if (
 
     novoBotao.addEventListener("click", function () {
 
+console.log("PROGRESSO V2:", progressoV2);
+console.log("RAIO ANTES:", getComputedStyle(introV2).getPropertyValue("--raio-visao"));
+
 
         // =================================================
         // SE CHEGOU EM 100%
@@ -143,6 +146,7 @@ introV2.style.setProperty(
     raioAtual + "px"
 );
 
+console.log("RAIO DEPOIS:", getComputedStyle(introV2).getPropertyValue("--raio-visao"));
 
         // =================================================
         // MENSAGENS
