@@ -4,7 +4,9 @@
    ===================================================== */
 
 
-/* TELA DE ENTRADA V2 */
+/* =====================================================
+   TELA DE ENTRADA V2
+   ===================================================== */
 
 #intro-screen {
 
@@ -28,11 +30,30 @@
     overflow: hidden !important;
 
     z-index: 99999 !important;
-
 }
 
 
-/* CÍRCULO DE REVELAÇÃO */
+/* =====================================================
+   FUNDO PRETO
+   ===================================================== */
+
+#intro-screen::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #000;
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   CÍRCULO DE REVELAÇÃO
+   ===================================================== */
 
 #circulo-visao {
 
@@ -41,38 +62,40 @@
     width: 0 !important;
     height: 0 !important;
 
-    border-radius: 50% !important;
-
-    background: #f4f8fc !important;
-
     left: 50% !important;
     top: 50% !important;
 
     transform: translate(-50%, -50%) !important;
 
-    transition:
-        width 0.8s ease,
-        height 0.8s ease !important;
+    border-radius: 50% !important;
+
+    background: #f4f8fc !important;
 
     z-index: 1 !important;
 
+    transition:
+        width 0.8s ease,
+        height 0.8s ease !important;
 }
 
 
-/* CONTEÚDO */
+/* =====================================================
+   CONTEÚDO DA INTRO
+   ===================================================== */
 
-.intro-content {
+#intro-screen .intro-content {
 
     position: relative !important;
 
-    z-index: 2 !important;
+    z-index: 10 !important;
 
     text-align: center !important;
-
 }
 
 
-/* TÍTULO */
+/* =====================================================
+   TÍTULO
+   ===================================================== */
 
 .intro-content h1 {
 
@@ -81,35 +104,42 @@
     color: #00c6ff !important;
 
     margin-bottom: 25px !important;
-
 }
 
 
-/* TEXTO */
+/* =====================================================
+   TEXTO
+   ===================================================== */
 
 #intro-text {
 
     font-size: 25px !important;
 
     margin-bottom: 20px !important;
-
 }
 
 
-/* PORCENTAGEM */
+/* =====================================================
+   PORCENTAGEM
+   ===================================================== */
 
 #porcentagem {
 
     font-size: 50px !important;
 
     margin: 20px 0 !important;
-
 }
 
 
-/* BOTÃO */
+/* =====================================================
+   BOTÃO
+   ===================================================== */
 
-#botao-iniciar {
+#intro-screen #botao-iniciar {
+
+    position: relative !important;
+
+    z-index: 20 !important;
 
     margin-top: 10px !important;
 
@@ -130,40 +160,48 @@
     cursor: pointer !important;
 
     transition: 0.3s !important;
-
 }
 
 
-#botao-iniciar:hover {
+/* =====================================================
+   BOTÃO — HOVER
+   ===================================================== */
+
+#intro-screen #botao-iniciar:hover {
 
     transform: scale(1.08) !important;
 
     background: #009ed1 !important;
-
 }
 
 
-#botao-iniciar:active {
+/* =====================================================
+   BOTÃO — CLIQUE
+   ===================================================== */
+
+#intro-screen #botao-iniciar:active {
 
     transform: scale(0.95) !important;
-
 }
 
 
-/* FINAL DA INTRO */
+/* =====================================================
+   FINAL DA INTRO
+   ===================================================== */
 
 #intro-screen.saindo {
 
     opacity: 0 !important;
 
-    transition: opacity 1s ease !important;
-
     pointer-events: none !important;
 
+    transition: opacity 1s ease !important;
 }
 
 
-/* CELULAR */
+/* =====================================================
+   CELULAR
+   ===================================================== */
 
 @media (max-width: 600px) {
 
@@ -188,7 +226,7 @@
     }
 
 
-    #botao-iniciar {
+    #intro-screen #botao-iniciar {
 
         padding: 13px 30px !important;
 
