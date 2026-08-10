@@ -12,7 +12,6 @@ const botaoV2 = document.querySelector("#botao-iniciar");
 const introV2 = document.querySelector("#intro-screen");
 const textoV2 = document.querySelector("#intro-text");
 const porcentagemV2 = document.querySelector("#porcentagem");
-const botaoV2 = document.querySelector("#botao-iniciar");
 
 // =====================================================
 // DESATIVA O SISTEMA ANTIGO DA INTRO
