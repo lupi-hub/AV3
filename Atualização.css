@@ -65,12 +65,14 @@
        no centro.
     */
 
-    background: radial-gradient(
-        circle var(--raio-visao) at 50% 50%,
-        transparent 0,
-        transparent calc(var(--raio-visao) - 1px),
-        #000 calc(var(--raio-visao) + 1px)
-    );
+background: radial-gradient(
+    circle var(--raio-visao) at 50% 50%,
+    transparent 0,
+    transparent calc(var(--raio-visao) - 80px),
+    rgba(0, 0, 0, 0.25) calc(var(--raio-visao) - 40px),
+    rgba(0, 0, 0, 0.6) calc(var(--raio-visao) - 20px),
+    #000 var(--raio-visao)
+);
 
     pointer-events: none;
 }

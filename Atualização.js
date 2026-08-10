@@ -135,7 +135,7 @@ console.log("RAIO ANTES:", getComputedStyle(introV2).getPropertyValue("--raio-vi
     );
 
 const raioMaximo =
-    maiorDimensao * 1.5;
+    maiorDimensao * 0.8;
 
 const raioAtual =
     raioMaximo *
