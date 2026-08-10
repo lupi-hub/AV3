@@ -33,7 +33,7 @@
        O preto será criado pelo JS
        através do background.
     */
-    background: #000 !important;
+    background: transparent !important;
 
     /*
        Variável usada para controlar
