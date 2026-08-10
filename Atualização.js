@@ -217,3 +217,5 @@ introV2.style.setProperty(
     });
 
 }
+
+alert("ATUALIZAÇÃO V2 ESTÁ SENDO EXECUTADA!");
