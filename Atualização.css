@@ -1,0 +1,199 @@
+/* =====================================================
+   ATUALIZAÇÃO V2
+   ENTRADA CIRCULAR
+   ===================================================== */
+
+
+/* TELA DE ENTRADA V2 */
+
+#intro-screen {
+
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100vh !important;
+
+    background: #000 !important;
+
+    color: white !important;
+
+    display: flex !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    overflow: hidden !important;
+
+    z-index: 99999 !important;
+
+}
+
+
+/* CÍRCULO DE REVELAÇÃO */
+
+#circulo-visao {
+
+    position: absolute !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    border-radius: 50% !important;
+
+    background: #f4f8fc !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    transition:
+        width 0.8s ease,
+        height 0.8s ease !important;
+
+    z-index: 1 !important;
+
+}
+
+
+/* CONTEÚDO */
+
+.intro-content {
+
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    text-align: center !important;
+
+}
+
+
+/* TÍTULO */
+
+.intro-content h1 {
+
+    font-size: 70px !important;
+
+    color: #00c6ff !important;
+
+    margin-bottom: 25px !important;
+
+}
+
+
+/* TEXTO */
+
+#intro-text {
+
+    font-size: 25px !important;
+
+    margin-bottom: 20px !important;
+
+}
+
+
+/* PORCENTAGEM */
+
+#porcentagem {
+
+    font-size: 50px !important;
+
+    margin: 20px 0 !important;
+
+}
+
+
+/* BOTÃO */
+
+#botao-iniciar {
+
+    margin-top: 10px !important;
+
+    padding: 15px 40px !important;
+
+    border: none !important;
+
+    border-radius: 30px !important;
+
+    background: #00c6ff !important;
+
+    color: white !important;
+
+    font-size: 18px !important;
+
+    font-weight: bold !important;
+
+    cursor: pointer !important;
+
+    transition: 0.3s !important;
+
+}
+
+
+#botao-iniciar:hover {
+
+    transform: scale(1.08) !important;
+
+    background: #009ed1 !important;
+
+}
+
+
+#botao-iniciar:active {
+
+    transform: scale(0.95) !important;
+
+}
+
+
+/* FINAL DA INTRO */
+
+#intro-screen.saindo {
+
+    opacity: 0 !important;
+
+    transition: opacity 1s ease !important;
+
+    pointer-events: none !important;
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .intro-content h1 {
+
+        font-size: 45px !important;
+
+    }
+
+
+    #intro-text {
+
+        font-size: 18px !important;
+
+    }
+
+
+    #porcentagem {
+
+        font-size: 40px !important;
+
+    }
+
+
+    #botao-iniciar {
+
+        padding: 13px 30px !important;
+
+        font-size: 16px !important;
+
+    }
+
+}
