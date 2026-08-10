@@ -113,31 +113,23 @@ if (
         // REVELAÇÃO CIRCULAR
         // =================================================
 
-        const maiorDimensao =
-            Math.max(
-                window.innerWidth,
-                window.innerHeight
-            );
+       const maiorDimensao =
+    Math.max(
+        window.innerWidth,
+        window.innerHeight
+    );
 
+const raioMaximo =
+    maiorDimensao * 1.5;
 
-        /*
-           Precisamos de um raio grande o suficiente
-           para alcançar os quatro cantos da tela.
-        */
+const raioAtual =
+    raioMaximo *
+    (progressoV2 / 100);
 
-        const raioMaximo =
-            maiorDimensao * 1.5;
-
-
-        const raioAtual =
-            raioMaximo *
-            (progressoV2 / 100);
-
-
-        introV2.style.setProperty(
-            "--raio-visao",
-            raioAtual + "px"
-        );
+introV2.style.setProperty(
+    "--raio-visao",
+    raioAtual + "px"
+);
 
 
         // =================================================
