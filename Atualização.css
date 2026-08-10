@@ -5,7 +5,7 @@
 
 
 /* =====================================================
-   TELA DE ENTRADA V2
+   TELA DE ENTRADA
    ===================================================== */
 
 #intro-screen {
@@ -18,8 +18,6 @@
     width: 100% !important;
     height: 100vh !important;
 
-    background: #000 !important;
-
     color: white !important;
 
     display: flex !important;
@@ -30,11 +28,25 @@
     overflow: hidden !important;
 
     z-index: 99999 !important;
+
+    /*
+       O preto será criado pelo JS
+       através do background.
+    */
+    background: #000 !important;
+
+    /*
+       Variável usada para controlar
+       o tamanho do buraco circular.
+    */
+    --raio-visao: 0px;
+
+    transition: opacity 1s ease !important;
 }
 
 
 /* =====================================================
-   FUNDO PRETO
+   FUNDO PRETO COM REVELAÇÃO CIRCULAR
    ===================================================== */
 
 #intro-screen::before {
@@ -45,15 +57,34 @@
 
     inset: 0;
 
-    background: #000;
-
     z-index: 0;
+
+    /*
+       Preto por toda a tela,
+       com um círculo transparente
+       no centro.
+    */
+
+    background: radial-gradient(
+        circle var(--raio-visao) at 50% 50%,
+        transparent 0,
+        transparent calc(var(--raio-visao) - 1px),
+        #000 calc(var(--raio-visao) + 1px)
+    );
+
+    pointer-events: none;
 }
 
 
 /* =====================================================
-   CÍRCULO DE REVELAÇÃO
+   CÍRCULO
    ===================================================== */
+
+/*
+   O círculo não precisa mais ser branco.
+   Ele fica invisível porque a verdadeira
+   revelação é feita pelo ::before.
+*/
 
 #circulo-visao {
 
@@ -69,18 +100,16 @@
 
     border-radius: 50% !important;
 
-    background: #f4f8fc !important;
+    background: transparent !important;
 
     z-index: 1 !important;
 
-    transition:
-        width 0.8s ease,
-        height 0.8s ease !important;
+    pointer-events: none !important;
 }
 
 
 /* =====================================================
-   CONTEÚDO DA INTRO
+   CONTEÚDO
    ===================================================== */
 
 #intro-screen .intro-content {
@@ -164,7 +193,7 @@
 
 
 /* =====================================================
-   BOTÃO — HOVER
+   HOVER
    ===================================================== */
 
 #intro-screen #botao-iniciar:hover {
@@ -176,7 +205,7 @@
 
 
 /* =====================================================
-   BOTÃO — CLIQUE
+   ACTIVE
    ===================================================== */
 
 #intro-screen #botao-iniciar:active {
@@ -186,7 +215,7 @@
 
 
 /* =====================================================
-   FINAL DA INTRO
+   FINAL
    ===================================================== */
 
 #intro-screen.saindo {

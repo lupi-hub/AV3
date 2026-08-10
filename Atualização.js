@@ -3,12 +3,21 @@
 // ENTRADA CIRCULAR
 // =====================================================
 
+
+// =====================================================
+// ELEMENTOS
+// =====================================================
+
 const introV2 = document.querySelector("#intro-screen");
 const textoV2 = document.querySelector("#intro-text");
 const porcentagemV2 = document.querySelector("#porcentagem");
 const botaoV2 = document.querySelector("#botao-iniciar");
 
-// Criamos o círculo automaticamente
+
+// =====================================================
+// CRIA O CÍRCULO AUTOMATICAMENTE
+// =====================================================
+
 let circuloV2 = document.querySelector("#circulo-visao");
 
 if (!circuloV2 && introV2) {
@@ -25,7 +34,9 @@ if (!circuloV2 && introV2) {
 }
 
 
-// Progresso da V2
+// =====================================================
+// PROGRESSO
+// =====================================================
 
 let progressoV2 = 0;
 
@@ -42,7 +53,10 @@ if (
     circuloV2
 ) {
 
-    // Impede o comportamento antigo do botão
+
+    // =================================================
+    // IMPEDE O COMPORTAMENTO ANTIGO DO BOTÃO
+    // =================================================
 
     const novoBotao = botaoV2.cloneNode(true);
 
@@ -58,32 +72,46 @@ if (
 
     novoBotao.addEventListener("click", function () {
 
-        // Não passa de 100%
+
+        // =================================================
+        // SE CHEGOU EM 100%
+        // O PRÓXIMO CLIQUE ENTRA NO SITE
+        // =================================================
 
         if (progressoV2 >= 100) {
 
-            return;
+            introV2.classList.add("saindo");
 
+
+            setTimeout(function () {
+
+                introV2.style.display = "none";
+
+            }, 1000);
+
+
+            return;
         }
 
 
-        // Aumenta 10%
+        // =================================================
+        // AUMENTA 10%
+        // =================================================
 
         progressoV2 += 10;
 
 
-        // Atualiza porcentagem
+        // =================================================
+        // ATUALIZA PORCENTAGEM
+        // =================================================
 
         porcentagemV2.innerHTML =
             progressoV2 + "%";
 
 
         // =================================================
-        // TAMANHO DO CÍRCULO
+        // REVELAÇÃO CIRCULAR
         // =================================================
-
-        // Calcula o tamanho necessário
-        // para cobrir toda a tela
 
         const maiorDimensao =
             Math.max(
@@ -92,22 +120,24 @@ if (
             );
 
 
-        const tamanhoMaximo =
-            maiorDimensao * 2.5;
+        /*
+           Precisamos de um raio grande o suficiente
+           para alcançar os quatro cantos da tela.
+        */
+
+        const raioMaximo =
+            maiorDimensao * 1.5;
 
 
-        // Converte 0-100% para tamanho do círculo
-
-        const tamanho =
-            tamanhoMaximo *
+        const raioAtual =
+            raioMaximo *
             (progressoV2 / 100);
 
 
-        circuloV2.style.width =
-            tamanho + "px";
-
-        circuloV2.style.height =
-            tamanho + "px";
+        introV2.style.setProperty(
+            "--raio-visao",
+            raioAtual + "px"
+        );
 
 
         // =================================================
@@ -182,26 +212,13 @@ if (
             textoV2.innerHTML =
                 "Visão recuperada!";
 
+
+            // =================================================
+            // MUDA O BOTÃO
+            // =================================================
+
             novoBotao.innerHTML =
                 "Entrar no site";
-
-
-            // Pequena pausa antes de sair
-
-            setTimeout(function () {
-
-                introV2.classList.add("saindo");
-
-
-                setTimeout(function () {
-
-                    introV2.style.display =
-                        "none";
-
-                }, 1000);
-
-
-            }, 700);
 
         }
 
