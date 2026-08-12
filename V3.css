@@ -1,0 +1,221 @@
+/* =====================================================
+   V3
+   SIMULAÇÃO DA PROGRESSÃO DO GLAUCOMA
+   ===================================================== */
+
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.v3-visao-container {
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   ÁREA DA VISÃO
+   ===================================================== */
+
+.v3-visao {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #000;
+
+}
+
+
+/* =====================================================
+   IMAGEM
+   ===================================================== */
+
+.v3-visao img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   CAMADA DE ESCURECIMENTO
+   ===================================================== */
+
+.v3-escuro {
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    z-index: 999 !important;
+
+    pointer-events: none !important;
+
+}
+
+
+/* =====================================================
+   CONTROLES
+   ===================================================== */
+
+.v3-controles {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+}
+
+
+/* =====================================================
+   BARRA DE PROGRESSO
+   ===================================================== */
+
+.v3-slider {
+
+    width: 100%;
+
+    height: 12px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border-radius: 10px;
+
+    background: #d9d9d9;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   BOLINHA — CHROME / EDGE
+   ===================================================== */
+
+.v3-slider::-webkit-slider-thumb {
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #00c6ff;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   BOLINHA — FIREFOX
+   ===================================================== */
+
+.v3-slider::-moz-range-thumb {
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #00c6ff;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   PORCENTAGEM
+   ===================================================== */
+
+.v3-porcentagem {
+
+    margin-top: 15px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #00c6ff;
+
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .v3-visao-container {
+
+        width: 90%;
+
+    }
+
+
+    .v3-controles {
+
+        margin-top: 20px;
+
+    }
+
+
+    .v3-slider {
+
+        height: 10px;
+
+    }
+
+
+    .v3-slider::-webkit-slider-thumb {
+
+        width: 22px;
+        height: 22px;
+
+    }
+
+
+    .v3-porcentagem {
+
+        font-size: 18px;
+
+    }
+
+}

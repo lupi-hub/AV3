@@ -1,0 +1,290 @@
+/* =====================================================
+   ATUALIZAÇÃO V2
+   ENTRADA CIRCULAR
+   ===================================================== */
+
+
+/* =====================================================
+   TELA DE ENTRADA
+   ===================================================== */
+
+#intro-screen {
+
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100vh !important;
+
+    color: white !important;
+
+    display: flex !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    overflow: hidden !important;
+
+    z-index: 99999 !important;
+
+    /*
+       O preto será criado pelo JS
+       através do background.
+    */
+    background: transparent !important;
+
+    /*
+       Variável usada para controlar
+       o tamanho do buraco circular.
+    */
+    --raio-visao: 0px;
+
+    transition: opacity 1s ease !important;
+}
+
+
+/* =====================================================
+   FUNDO PRETO COM REVELAÇÃO CIRCULAR
+   ===================================================== */
+
+#intro-screen::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    /*
+       Preto por toda a tela,
+       com um círculo transparente
+       no centro.
+    */
+
+background: radial-gradient(
+    circle var(--raio-visao) at 50% 50%,
+    transparent 0,
+    transparent calc(var(--raio-visao) - 100px),
+    rgba(0, 0, 0, 0.25) calc(var(--raio-visao) - 40px),
+    rgba(0, 0, 0, 0.6) calc(var(--raio-visao) - 20px),
+    #000 var(--raio-visao)
+);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CÍRCULO
+   ===================================================== */
+
+/*
+   O círculo não precisa mais ser branco.
+   Ele fica invisível porque a verdadeira
+   revelação é feita pelo ::before.
+*/
+
+#circulo-visao {
+
+    position: absolute !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    border-radius: 50% !important;
+
+    background: transparent !important;
+
+    z-index: 1 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+   ===================================================== */
+
+#intro-screen .intro-content {
+
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    text-align: center !important;
+}
+
+
+/* =====================================================
+   TÍTULO
+   ===================================================== */
+
+.intro-content h1 {
+
+    font-size: 70px !important;
+
+    color: #00c6ff !important;
+
+    margin-bottom: 25px !important;
+}
+
+
+/* =====================================================
+   TEXTO
+   ===================================================== */
+
+#intro-text {
+
+    font-size: 25px !important;
+
+    margin-bottom: 20px !important;
+}
+
+
+/* =====================================================
+   PORCENTAGEM
+   ===================================================== */
+
+#porcentagem {
+
+    font-size: 50px !important;
+
+    margin: 20px 0 !important;
+}
+
+
+/* =====================================================
+   BOTÃO
+   ===================================================== */
+
+#intro-screen #botao-iniciar {
+
+    position: relative !important;
+
+    z-index: 20 !important;
+
+    margin-top: 10px !important;
+
+    padding: 15px 40px !important;
+
+    border: none !important;
+
+    border-radius: 30px !important;
+
+    background: #00c6ff !important;
+
+    color: white !important;
+
+    font-size: 18px !important;
+
+    font-weight: bold !important;
+
+    cursor: pointer !important;
+
+    transition: 0.3s !important;
+}
+
+
+/* =====================================================
+   HOVER
+   ===================================================== */
+
+#intro-screen #botao-iniciar:hover {
+
+    transform: scale(1.08) !important;
+
+    background: #009ed1 !important;
+}
+
+
+/* =====================================================
+   ACTIVE
+   ===================================================== */
+
+#intro-screen #botao-iniciar:active {
+
+    transform: scale(0.95) !important;
+}
+
+
+/* =====================================================
+   FINAL
+   ===================================================== */
+
+#intro-screen.saindo {
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+
+    transition: opacity 1s ease !important;
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .intro-content h1 {
+
+        font-size: 45px !important;
+
+    }
+
+
+    #intro-text {
+
+        font-size: 18px !important;
+
+    }
+
+
+    #porcentagem {
+
+        font-size: 40px !important;
+
+    }
+
+
+    #intro-screen #botao-iniciar {
+
+        padding: 13px 30px !important;
+
+        font-size: 16px !important;
+
+    }
+
+}
+
+/* =====================================================
+   DESATIVA O SISTEMA ANTIGO DA INTRO
+   ===================================================== */
+
+.intro-overlay {
+    display: none !important;
+}
+
+/* ========================================
+   CORREÇÃO - FINAL DA INTRO V2
+======================================== */
+
+#intro-screen.saindo .intro-content {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
